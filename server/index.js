@@ -37,7 +37,7 @@ app.get('/api/people', (req, res) => {
   })
 })
 
-app.get('/people/:id', (req, res) => {
+app.get('/api/people/:id', (req, res) => {
   console.log(`/api/people/${req.params.id}`)
   fetch(`https://swapi.co/api/people/${req.params.id}`, {
     method: 'GET',

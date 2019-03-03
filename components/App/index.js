@@ -10,8 +10,9 @@ import {
 } from 'react-native'
 import {observer} from 'mobx-react'
 import {extendObservable} from 'mobx'
+import {API_URL, PORT} from '../../config'
 
-const PORT = process.env.NODE_ENV === 'production' ? 8080 : 3000
+const styles = require('./styles.js')
 
 const App = observer(class App extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ const App = observer(class App extends Component {
   }
 
   fetchPeople = () => {
-    fetch('http://localhost:8080/people', {
+    fetch(`${API_URL}/people`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -42,7 +43,7 @@ const App = observer(class App extends Component {
   }
 
   fetchPerson = (id) => {
-    fetch(`http://localhost:8080/people/${id}`, {
+    fetch(`${API_URL}/people/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -89,64 +90,6 @@ const App = observer(class App extends Component {
       </View>
     )
   }
-})
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-  header: {
-    marginTop: 150,
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontWeight: 'bold',
-    fontSize: 28,
-  },
-  subHeader: {
-    fontSize: 16,
-    color: 'rgba(0,0,0,0.5)',
-    marginBottom: 24,
-  },
-  button: {
-    height: 50,
-    width: Dimensions.get('window').width * 0.9,
-    backgroundColor: 'green',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  buttonText: {
-    color: 'white',
-  },
-  peopleListItem: {
-    height: 50,
-    width: Dimensions.get('window').width * 0.9,
-    backgroundColor: 'rgba(0,0,0,0.15)',
-    borderRadius: 4,
-    borderColor: 'rgba(0,0,0,0.25)',
-    borderWidth: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 4,
-    marginBottom: 4,
-  },
-  profile: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  profileHeaderText: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    marginBottom: 10,
-  },
-  profileText: {
-    fontSize: 14,
-    color: 'rgba(0,0,0,0.5)',
-  },
 })
 
 export default App

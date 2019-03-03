@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "start": "run-s tab:server start:client",
-    "start:client": "react-native run-ios",
-    "start:server": "nodemon server.js",
+    "start:ios": "run-s tab:server ios",
+    "start:android": "run-s tab:server android",
+    "start:server": "nodemon server/index.js",
+    "ios": "react-native run-ios",
+    "android": "react-native run-android",
     "tab:server": "ttab -t 'api server' npm run start:server",
     "test": "jest"
   },

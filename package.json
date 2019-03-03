@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm-run-all --parallel start:client start:server",
-    "start:client": "node node_modules/react-native/local-cli/cli.js start",
-    "start:server": "node server.js",
+    "start": "run-s tab:server start:client",
+    "start:client": "react-native run-ios",
+    "start:server": "nodemon server.js",
+    "tab:server": "ttab -t 'api server' npm run start:server",
     "test": "jest"
   },
   "dependencies": {
@@ -13,11 +14,13 @@
     "express": "^4.16.4",
     "mobx": "^5.9.0",
     "mobx-react": "^5.4.3",
+    "node-fetch": "^2.3.0",
     "nodemon": "^1.18.10",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
     "react": "16.6.3",
-    "react-native": "0.58.6"
+    "react-native": "0.58.6",
+    "ttab": "^0.6.1"
   },
   "devDependencies": {
     "jest": "24.1.0",

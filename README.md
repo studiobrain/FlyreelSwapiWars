@@ -9,7 +9,7 @@ A React Native app with a local Node API clone of the Swapi people endpoint
 note: make sure you have Xcode installed
 
 # To run the app via Android:
-# caveat: Android version has issue with the network calls and will need revisions to complete the data transfer
+## caveat: Android version has issues with the network calls and will need revisions to complete the data transfer
 1. pull the latest from master
 2. run `yarn`
 3. run `start:server`

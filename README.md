@@ -46,4 +46,21 @@ app.get('/api/people', (req, res) => {
 })
 ```
 
-Additional API endpoints can be consumed via the example given in App.js `fetchPeople()` method
+Additional API endpoints can be consumed via the example given in components/App/index.js `fetchPeople()` method:
+```
+fetchPeople = () => {
+    fetch(`${API_URL}/people`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }).then(res => {
+      return res.json()
+    }).then(response => {
+      //do something with the response
+    }).catch(error => {
+      //do something with the error
+    })
+  }
+```

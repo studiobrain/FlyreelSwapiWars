@@ -9,7 +9,8 @@ A React Native app with a local Node API clone of the Swapi people endpoint
 note: make sure you have Xcode installed
 
 # To run the app via Android:
-## caveat: Android version has issues with the network calls and will need revisions to complete the data transfer
+## caveat: You must update the localhost calls within App.js with your local machines IP ie: http://192.168.86.107
+### example: ```fetch('http://192.168.86.107:8080/people', {...})```
 1. pull the latest from master
 2. run `yarn`
 3. run `start:server`
